@@ -1,0 +1,33 @@
+{
+  "name": "gulp-jade-template-concat",
+  "version": "0.0.1",
+  "description": "Compiles Jade client side templates into a single file containing template functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nStonehouse/gulp-jade-template-concat.git"
+  },
+  "keywords": [
+    "gulp",
+    "jade",
+    "client",
+    "template",
+    "concat"
+  ],
+  "author": "Nicholas Stonehouse",
+  "license": "MIT",
+  "dependencies": {
+    "through": "*",
+    "gulp-util": "*"
+  },
+  "peerDependencies": {
+    "jade": "*"
+  },
+  "bugs": {
+    "url": "https://github.com/nStonehouse/gulp-jade-template-concat/issues"
+  },
+  "homepage": "https://github.com/nStonehouse/gulp-jade-template-concat#readme"
+}
