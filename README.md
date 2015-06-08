@@ -15,7 +15,6 @@ var jadeConcat = require('gulp-jade-template-concat');
 
 
 gulp.task("client-templates", function(){
-    var dest = 'build/templates/';
     gulp.src('src/jade/templates/**/*.jade')
         .pipe(jade({
             client: true
