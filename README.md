@@ -9,10 +9,8 @@ $ npm install --save-dev gulp-jade-template-concat
 ##Usage
 ###Gulpfile
 ```javascript
-
 var jade = require('gulp-jade');
 var jadeConcat = require('gulp-jade-template-concat');
-
 
 gulp.task("client-templates", function(){
     gulp.src('src/jade/templates/**/*.jade')
@@ -22,7 +20,6 @@ gulp.task("client-templates", function(){
         .pipe(jadeConcat('mytemplates.js', {templateVariable:"templates"}))
         .pipe(gulp.dest('build/templates/'))
 });
-
 ```
 
 This compiles all of your client side jade templates into a file called `mytemplates.js`.  The `templateVariable` option is optional and will default to `templates` if it is not set.
