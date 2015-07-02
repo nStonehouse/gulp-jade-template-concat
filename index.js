@@ -1,5 +1,5 @@
 var gutil = require('gulp-util');
-var PluginError = gUtil.PluginError;
+var PluginError = gutil.PluginError;
 var through = require('through');
 
 
@@ -31,7 +31,7 @@ module.exports = function jadeConcat(fileName, _opts) {
 
   function end () {
     //wrap concatenated string in template object
-    var templateString = "var " + opts.templateVariable + " = {\n" + concatString + "}";
+    var templateString = "var " + _opts.templateVariable + " = {\n" + concatString + "}";
 
     this.queue(new gutil.File({
       path: fileName,
