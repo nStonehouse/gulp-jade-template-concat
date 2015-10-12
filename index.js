@@ -11,7 +11,6 @@ function pluginError (message) {
 module.exports = function jadeConcat(fileName, _opts) {
   if (!fileName) throw pluginError('Missing fileName')
 
-  console.log(templateVariable);
   var defaults = {templateVariable: "templates"}
   var concatString = "";
 
