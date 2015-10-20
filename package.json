@@ -1,6 +1,6 @@
 {
   "name": "gulp-jade-template-concat",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Compiles Jade client side templates into a single file containing template functions",
   "main": "index.js",
   "scripts": {
