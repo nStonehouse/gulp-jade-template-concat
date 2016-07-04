@@ -24,7 +24,7 @@
     "gulp-util": "*"
   },
   "peerDependencies": {
-    "jade": "*"
+    "pug": "*"
   },
   "bugs": {
     "url": "https://github.com/nStonehouse/gulp-jade-template-concat/issues"
