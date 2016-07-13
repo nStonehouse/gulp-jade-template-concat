@@ -20,8 +20,9 @@
   "author": "Nicholas Stonehouse",
   "license": "MIT",
   "dependencies": {
-    "through": "*",
-    "gulp-util": "*"
+    "gulp-util": "*",
+    "lodash": "^4.13.1",
+    "through": "*"
   },
   "peerDependencies": {
     "jade": "*"
