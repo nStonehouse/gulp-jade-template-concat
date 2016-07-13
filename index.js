@@ -1,6 +1,7 @@
 var gutil = require('gulp-util');
 var PluginError = gutil.PluginError;
 var through = require('through');
+var extend = require('lodash/fp/extend');
 
 
 function pluginError (message) {
@@ -11,8 +12,8 @@ function pluginError (message) {
 module.exports = function jadeConcat(fileName, _opts) {
   if (!fileName) throw pluginError('Missing fileName')
 
-  var defaults = {templateVariable: "templates"}
-  var concatString = "";
+  var opts = extend({templateVariable: "templates"}, _opts);
+  var templates = [];
 
 
   function write (file) {
@@ -25,12 +26,12 @@ module.exports = function jadeConcat(fileName, _opts) {
     // replace template name with filename
     var contents = file.contents.toString().replace('function template', '"' + filename + '": function')
 
-    concatString += contents + ",\n";;
+    templates.push(contents);
   }
 
   function end () {
     //wrap concatenated string in template object
-    var templateString = "var " + _opts.templateVariable + " = {\n" + concatString + "}";
+    var templateString = "var " + opts.templateVariable + " = {\n" + templates.join(",\n") + "\n}";
 
     this.queue(new gutil.File({
       path: fileName,
