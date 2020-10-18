@@ -20,17 +20,17 @@ module.exports = function jadeConcat(fileName, _opts) {
     if (file.isStream()) return this.emit('error', pluginError('Streaming not supported'))
 
     //isolate filename from full path
-    var filename = file.path.replace(file.base, "").replace(".js", "");
+    var filename = file.path.replace(file.base, "").replace("/", "").replace(".js", "");
 
     // replace template name with filename
-    var contents = file.contents.toString().replace('function template', '"' + filename + '": function')
+    var contents = file.contents.toString();
 
-    concatString += contents + ",\n";;
+    concatString += '(function(){' + contents + '\n' + _opts.templateVariable + '["' + filename + '"]=template;})();';
   }
 
   function end () {
     //wrap concatenated string in template object
-    var templateString = "var " + _opts.templateVariable + " = {\n" + concatString + "}";
+    var templateString = "var " + _opts.templateVariable + " = {};" + concatString;
 
     this.queue(new gutil.File({
       path: fileName,
