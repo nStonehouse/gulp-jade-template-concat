@@ -20,7 +20,7 @@ module.exports = function jadeConcat(fileName, _opts) {
     if (file.isStream()) return this.emit('error', pluginError('Streaming not supported'))
 
     //isolate filename from full path
-    var filename = file.path.replace(file.base, "").replace(".js", "");
+    var filename = file.path.replace(file.base, "").replace("/", "").replace(".js", "");
 
     // replace template name with filename
     var contents = file.contents.toString();
